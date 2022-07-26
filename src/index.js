@@ -9,6 +9,7 @@ import rootReducer from "./modules";
 import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReduxThunk from "redux-thunk";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // 여러개의 미들웨어를 적용 할 수 있습니다.
@@ -20,9 +21,11 @@ const store = createStore(
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
